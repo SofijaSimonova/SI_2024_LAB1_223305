@@ -1,0 +1,139 @@
+4. 
+$mkdir SI_2024_lab1_223305 - креирање на фолдер/директориум
+$ cd SI_2024_lab1_223305 - влегување во самиот фолдер/директориум
+$ gir init - иницијализација на празен Git репозиториум 
+
+5.
+$ git remote add origin https://github.com/SofijaSimonova/SI_2024_lab1_223305.git - поврзување на локалниот репозиториум со оддалечениот репозиториум
+
+6.
+$ nano README.md - креирање на датотека и директно додавање на содржина.
+
+7.
+$ nano SILab1Main.java - креирање на датотека и директно додавање на содржина.
+$ nano SILab1_1.java - креирање на датотека и директно додавање на содржина.
+$ nano SILab1_2.java - креирање на датотека и директно додавање на содржина.
+$ git add .  - ги става сите досегашно креирани датотеки во состојба staged
+$ git config --global user.email sofija.simonova@students.finki.ukim.mk - најавување
+$ git config --global user.name SofijaSimonova - најавување
+$ git commit -m "Initial commit" - правење на git commit 
+
+8.
+$ git push origin master - испраќање на сите досегашни промени на remote репозиториумот
+
+9. 
+$ git checkout -b bug1 - креирање на нова гранка која што се разгранува од master
+$ git checkout master - враќање на гранката master
+$ git checkout -b bug2 - креирање на нова гранка која што се разгранува од master
+
+10. 
+$ git checkout bug1 - враќање на гранката bug1
+
+11.
+$ git nano SILab1_1.java - модифицирање на содржината.
+$ git commit -a -m "filterOddLengthStrings" - git add и git commit во една команда.
+
+12. 
+$ git checkout bug2 - враќање на гранката bug2
+
+
+13.
+$ git nano SILab1_2.java - модифицирање на содржината.
+$ git commit -a -m "Fix wrong condition in makeBigStringFrom" - git add и git commit во една команда.
+
+14. 
+$ git checkout bug1 - враќање на гранката bug1
+
+15.
+$ git nano SILab1Main.java - модифицирање на содржината.
+$ git commit -a -m "Call method filterOddLengthStrings in main class" - git add и git commit во една команда.
+
+16.
+$ git checkout bug2 - враќање на гранката bug2
+
+17.
+$ git nano SILab1Main.java - модифицирање на содржината.
+$ git commit -a -m "Call method makeBigStringFrom in main class." - git add и git commit во една команда.
+
+18.
+$ git push origin --all - испраќање на сите досегашни промени на remote репозиториумот
+
+19.
+$ git checkout master - враќање на гранката master
+
+20.
+$ git merge bug1 - соединување на гранката мастер и гранката bug1
+Updating 95e33a2..8a196bd
+Fast-forward
+ SILab1Main.java | 2 ++
+ SILab1_1.java   | 2 +-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+Немаше конфликт, беше употребен FF merge
+
+21.
+$ git push origin --all - испраќање на сите досегашни промени на remote репозиториумот
+
+22.
+$ git checkout bug2 - враќање на гранката bug2
+
+23.
+$git rebase master - се прави rebase на master и bug2
+Auto-merging SILab1Main.java
+CONFLICT (content): Merge conflict in SILab1Main.java
+error: could not apply 4fa326a... Call method makeBigStringFrom in main class
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 4fa326a... Call method makeBigStringFrom in main class
+
+Не сакаше да се направи git rebase, имаше конфликт па мануелно ги отсранив сите конфликтни линии и потоа направив git add . и git rebase --continue 
+
+24. 
+$ git checkout master - враќање на гранката master
+ 
+25.
+$ git merge bug2 - соединување на гранката мастер и гранката bug2
+Updating 8a196bd..63482d1
+Fast-forward
+ SILab1Main.java | 1 +
+ SILab1_2.java   | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+Немаше конфликт, беше употребен FF merge
+
+26.
+$ git push origin --all - испраќање на сите досегашни промени на remote репозиториумот
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 731 bytes | 731.00 KiB/s, done.
+Total 6 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (4/4), completed with 3 local objects.
+To https://github.com/SofijaSimonova/SI_2024_lab1_223305.git
+   8a196bd..63482d1  master -> master
+ ! [rejected]        bug2 -> bug2 (non-fast-forward)
+error: failed to push some refs to 'https://github.com/SofijaSimonova/SI_2024_lab1_223305.git'
+hint: Updates were rejected because a pushed branch tip is behind its remote
+hint: counterpart. If you want to integrate the remote changes, use 'git pull'
+hint: before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+27.
+$ git pull origin bug2 --force
+$ git push origin bug2 --force
+
+28.
+$ touch logs.txt - правење на нова датотека logs.txt
+$ git log --all --oneline > logs.txt - испраќање на содржината од git log во logs.txt
+$ nano 223305.txt
+$ git add .
+$ git commit -m "Final commit"
+
+29. 
+$ git push origin --all
+
+
+
